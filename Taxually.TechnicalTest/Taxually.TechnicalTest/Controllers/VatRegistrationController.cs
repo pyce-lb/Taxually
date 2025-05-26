@@ -19,12 +19,12 @@ namespace Taxually.TechnicalTest.Controllers
         {
             switch (request.Country)
             {
-                case "GB":
+                case Country.GreatBritain:
                     // UK has an API to register for a VAT number
                     var httpClient = new TaxuallyHttpClient();
                     await httpClient.PostAsync("https://api.uktax.gov.uk", request, cancellationToken);
                     break;
-                case "FR":
+                case Country.France:
                     // France requires an excel spreadsheet to be uploaded to register for a VAT number
                     var csvBuilder = new StringBuilder();
                     csvBuilder.AppendLine("CompanyName,CompanyId");
@@ -34,7 +34,7 @@ namespace Taxually.TechnicalTest.Controllers
                     // Queue file to be processed
                     await excelQueueClient.EnqueueAsync("vat-registration-csv", csv, cancellationToken);
                     break;
-                case "DE":
+                case Country.Germany:
                     // Germany requires an XML document to be uploaded to register for a VAT number
                     using (var stringwriter = new StringWriter())
                     {
