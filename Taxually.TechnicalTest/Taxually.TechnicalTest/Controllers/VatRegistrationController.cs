@@ -12,6 +12,8 @@ namespace Taxually.TechnicalTest.Controllers
     [ApiController]
     public class VatRegistrationController : ControllerBase
     {
+        private static readonly TaxuallyHttpClient _httpClient = new TaxuallyHttpClient();
+
         /// <summary>
         /// Registers a company for a VAT number in a given country
         /// </summary>
@@ -24,8 +26,7 @@ namespace Taxually.TechnicalTest.Controllers
             {
                 case Country.GreatBritain:
                     // UK has an API to register for a VAT number
-                    var httpClient = new TaxuallyHttpClient();
-                    await httpClient.PostAsync("https://api.uktax.gov.uk", request, cancellationToken);
+                    await _httpClient.PostAsync("https://api.uktax.gov.uk", request, cancellationToken);
                     break;
                 case Country.France:
                     // France requires an excel spreadsheet to be uploaded to register for a VAT number
