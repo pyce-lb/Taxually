@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Taxually.TechnicalTest.Contract\Taxually.TechnicalTest.Contract.csproj" />
+    <ProjectReference Include="..\Taxually.TechnicalTest.Infrastructure\Taxually.TechnicalTest.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

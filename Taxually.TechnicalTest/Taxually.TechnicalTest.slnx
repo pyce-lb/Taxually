@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="Taxually.TechnicalTest.Contract/Taxually.TechnicalTest.Contract.csproj" />
+  <Project Path="Taxually.TechnicalTest.Infrastructure/Taxually.TechnicalTest.Infrastructure.csproj" />
   <Project Path="Taxually.TechnicalTest/Taxually.TechnicalTest.csproj" />
 </Solution>
