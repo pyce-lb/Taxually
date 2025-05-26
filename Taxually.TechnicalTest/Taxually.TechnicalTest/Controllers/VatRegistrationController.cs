@@ -14,14 +14,14 @@ namespace Taxually.TechnicalTest.Controllers
         /// Registers a company for a VAT number in a given country
         /// </summary>
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] VatRegistrationRequest request)
+        public async Task<ActionResult> Post([FromBody] VatRegistrationRequest request, CancellationToken cancellationToken)
         {
             switch (request.Country)
             {
                 case "GB":
                     // UK has an API to register for a VAT number
                     var httpClient = new TaxuallyHttpClient();
-                    httpClient.PostAsync("https://api.uktax.gov.uk", request).Wait();
+                    await httpClient.PostAsync("https://api.uktax.gov.uk", request, cancellationToken);
                     break;
                 case "FR":
                     // France requires an excel spreadsheet to be uploaded to register for a VAT number
@@ -31,7 +31,7 @@ namespace Taxually.TechnicalTest.Controllers
                     var csv = Encoding.UTF8.GetBytes(csvBuilder.ToString());
                     var excelQueueClient = new TaxuallyQueueClient();
                     // Queue file to be processed
-                    excelQueueClient.EnqueueAsync("vat-registration-csv", csv).Wait();
+                    await excelQueueClient.EnqueueAsync("vat-registration-csv", csv, cancellationToken);
                     break;
                 case "DE":
                     // Germany requires an XML document to be uploaded to register for a VAT number
@@ -42,7 +42,7 @@ namespace Taxually.TechnicalTest.Controllers
                         var xml = stringwriter.ToString();
                         var xmlQueueClient = new TaxuallyQueueClient();
                         // Queue xml doc to be processed
-                        xmlQueueClient.EnqueueAsync("vat-registration-xml", xml).Wait();
+                        await xmlQueueClient.EnqueueAsync("vat-registration-xml", xml, cancellationToken);
                     }
                     break;
                 default:
