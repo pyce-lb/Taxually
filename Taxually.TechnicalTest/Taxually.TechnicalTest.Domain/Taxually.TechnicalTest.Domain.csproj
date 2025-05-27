@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Taxually.TechnicalTest.Application\Taxually.TechnicalTest.Application.csproj" />
-  </ItemGroup>
-
 </Project>

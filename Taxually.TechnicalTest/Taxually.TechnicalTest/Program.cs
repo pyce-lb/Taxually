@@ -10,6 +10,10 @@ builder.Services.Configure<HttpLoggingOptions>(builder.Configuration.GetSection(
 builder.Services.AddHttpLogging();
 builder.Services.AddProblemDetails();
 
+builder.Services.AddApi();
+builder.Services.AddApplication();
+builder.Services.AddInfrastructure();
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

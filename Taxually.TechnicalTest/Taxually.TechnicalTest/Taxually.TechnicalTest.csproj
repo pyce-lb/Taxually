@@ -15,10 +15,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Riok.Mapperly" Version="4.2.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Taxually.TechnicalTest.Application\Taxually.TechnicalTest.Application.csproj" />
     <ProjectReference Include="..\Taxually.TechnicalTest.Contract\Taxually.TechnicalTest.Contract.csproj" />
     <ProjectReference Include="..\Taxually.TechnicalTest.Infrastructure\Taxually.TechnicalTest.Infrastructure.csproj" />
   </ItemGroup>
