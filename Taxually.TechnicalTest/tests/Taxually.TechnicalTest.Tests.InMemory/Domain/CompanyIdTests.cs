@@ -11,7 +11,7 @@ public sealed class CompanyIdTests
     public void Ctor_Invalid_Fail(string id)
     {
         // Act
-        Action action = () => new CompanyId(id);
+        Action action = () => _ = new CompanyId(id);
 
         // Assert
         action.Should().ThrowExactly<ArgumentException>().WithParameterName(nameof(id));

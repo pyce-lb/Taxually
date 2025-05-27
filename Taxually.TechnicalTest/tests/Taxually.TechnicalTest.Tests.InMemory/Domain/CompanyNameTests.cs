@@ -11,7 +11,7 @@ public sealed class CompanyNameTests
     public void Ctor_Invalid_Fail(string name)
     {
         // Act
-        Action action = () => new CompanyName(name);
+        Action action = () => _ = new CompanyName(name);
 
         // Assert
         action.Should().ThrowExactly<ArgumentException>().WithParameterName(nameof(name));
