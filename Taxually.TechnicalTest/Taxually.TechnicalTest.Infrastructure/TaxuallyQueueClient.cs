@@ -1,8 +1,8 @@
-﻿using System.Threading;
+﻿using Taxually.TechnicalTest.Application;
 
-namespace Taxually.TechnicalTest
+namespace Taxually.TechnicalTest.Infrastructure
 {
-    public class TaxuallyQueueClient
+    public sealed class TaxuallyQueueClient : ITaxuallyQueueClient
     {
         public Task EnqueueAsync<TPayload>(string queueName, TPayload payload, CancellationToken cancellationToken = default)
         {

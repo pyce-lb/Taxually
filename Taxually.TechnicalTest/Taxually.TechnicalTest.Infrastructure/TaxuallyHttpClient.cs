@@ -1,6 +1,8 @@
-﻿namespace Taxually.TechnicalTest
+﻿using Taxually.TechnicalTest.Application;
+
+namespace Taxually.TechnicalTest.Infrastructure
 {
-    public class TaxuallyHttpClient
+    public sealed class TaxuallyHttpClient : ITaxuallyHttpClient
     {
         public Task PostAsync<TRequest>(string url, TRequest request, CancellationToken cancellationToken = default)
         {

@@ -2,7 +2,7 @@
 
 namespace Taxually.TechnicalTest.Contract;
 
-public record VatRegistrationRequest
+public sealed record VatRegistrationRequest
 {
     [Required]
     public string CompanyName { get; set; } = string.Empty;
