@@ -11,7 +11,7 @@ public sealed class ApiVatRegistrationCommandHandler : ICommandHandler<VatRegist
         _httpClient = httpClient;
     }
 
-    public async Task HandleAsync(VatRegistrationCommand command, CancellationToken cancellationToken = default)
+    public async ValueTask HandleAsync(VatRegistrationCommand command, CancellationToken cancellationToken = default)
     {
         await _httpClient.PostAsync(Url, command, cancellationToken);
     }

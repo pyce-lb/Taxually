@@ -7,7 +7,7 @@ public sealed class XmlVatRegistrationCommandHandler : QueueVatRegistrationComma
     public XmlVatRegistrationCommandHandler(ITaxuallyQueueClient queueClient, IXmlSerializer<VatRegistrationCommand> serializer)
         : base(queueClient, serializer) { }
 
-    public override async Task HandleAsync(VatRegistrationCommand command, CancellationToken cancellationToken = default)
+    public override async ValueTask HandleAsync(VatRegistrationCommand command, CancellationToken cancellationToken = default)
     {
         string xml = Serializer.Serialize(command);
         await QueueClient.EnqueueAsync(QueueName, xml, cancellationToken);

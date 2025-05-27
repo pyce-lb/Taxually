@@ -11,5 +11,5 @@ public abstract class QueueVatRegistrationCommandHandler : ICommandHandler<VatRe
     protected ITaxuallyQueueClient QueueClient { get; }
     protected ISerializer<VatRegistrationCommand> Serializer { get; }
 
-    public abstract Task HandleAsync(VatRegistrationCommand command, CancellationToken cancellationToken = default);
+    public abstract ValueTask HandleAsync(VatRegistrationCommand command, CancellationToken cancellationToken = default);
 }

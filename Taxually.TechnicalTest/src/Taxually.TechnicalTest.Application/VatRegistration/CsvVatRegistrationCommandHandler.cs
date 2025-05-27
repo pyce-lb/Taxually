@@ -9,7 +9,7 @@ public sealed class CsvVatRegistrationCommandHandler : QueueVatRegistrationComma
     public CsvVatRegistrationCommandHandler(ITaxuallyQueueClient queueClient, ICsvSerializer<VatRegistrationCommand> serializer)
         : base(queueClient, serializer) { }
 
-    public override async Task HandleAsync(VatRegistrationCommand command, CancellationToken cancellationToken = default)
+    public override async ValueTask HandleAsync(VatRegistrationCommand command, CancellationToken cancellationToken = default)
     {
         string csv = Serializer.Serialize(command);
         byte[] payload = Encoding.UTF8.GetBytes(csv);
