@@ -1,8 +1,16 @@
-﻿namespace Taxually.TechnicalTest.Contract;
+﻿using System.ComponentModel.DataAnnotations;
 
-public class VatRegistrationRequest
+namespace Taxually.TechnicalTest.Contract;
+
+public record VatRegistrationRequest
 {
-    public string CompanyName { get; set; }
-    public string CompanyId { get; set; }
-    public Country Country { get; set; }
+    [Required]
+    public string CompanyName { get; set; } = string.Empty;
+
+    [Required]
+    public string CompanyId { get; set; } = string.Empty;
+
+    [Required]
+    [EnumDataType(typeof(Country), ErrorMessage = "Country not supported.")]
+    public Country? Country { get; set; }
 }

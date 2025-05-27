@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Diagnostics;
+using System.Text;
 using System.Xml.Serialization;
 using Microsoft.AspNetCore.Mvc;
 using Taxually.TechnicalTest.Contract;
@@ -47,7 +48,7 @@ namespace Taxually.TechnicalTest.Controllers
                     }
                     break;
                 default:
-                    throw new Exception("Country not supported");
+                    throw new UnreachableException("Country not supported");
 
             }
             return Ok();
