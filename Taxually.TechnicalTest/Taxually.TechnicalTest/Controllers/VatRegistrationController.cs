@@ -16,6 +16,8 @@ namespace Taxually.TechnicalTest.Controllers
         /// Registers a company for a VAT number in a given country
         /// </summary>
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult> Post([FromBody] VatRegistrationRequest request, CancellationToken cancellationToken)
         {
             switch (request.Country)
