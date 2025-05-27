@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using Microsoft.Extensions.DependencyInjection;
 using Taxually.TechnicalTest.Domain;
 
 namespace Taxually.TechnicalTest.Application.VatRegistration;
@@ -10,13 +9,14 @@ public sealed class VatRegistrationCommandHandlerFactory
 
     private readonly ITaxuallyHttpClient _httpClient;
     private readonly ITaxuallyQueueClient _queueClient;
-    private readonly ISerializer<VatRegistrationCommand> _csvSerializer;
-    private readonly ISerializer<VatRegistrationCommand> _xmlSerializer;
+    private readonly ICsvSerializer<VatRegistrationCommand> _csvSerializer;
+    private readonly IXmlSerializer<VatRegistrationCommand> _xmlSerializer;
 
-    public VatRegistrationCommandHandlerFactory(ITaxuallyHttpClient httpClient,
+    public VatRegistrationCommandHandlerFactory(
+        ITaxuallyHttpClient httpClient,
         ITaxuallyQueueClient queueClient,
-        [FromKeyedServices(ISerializer.CsvKey)] ISerializer<VatRegistrationCommand> csvSerializer,
-        [FromKeyedServices(ISerializer.XmlKey)] ISerializer<VatRegistrationCommand> xmlSerializer)
+        ICsvSerializer<VatRegistrationCommand> csvSerializer,
+        IXmlSerializer<VatRegistrationCommand> xmlSerializer)
     {
         _httpClient = httpClient;
         _queueClient = queueClient;

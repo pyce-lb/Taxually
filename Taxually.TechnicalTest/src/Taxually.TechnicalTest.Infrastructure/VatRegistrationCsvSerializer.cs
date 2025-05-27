@@ -4,7 +4,7 @@ using Taxually.TechnicalTest.Application.VatRegistration;
 
 namespace Taxually.TechnicalTest.Infrastructure;
 
-public class VatRegistrationCsvSerializer : ISerializer<VatRegistrationCommand>
+public class VatRegistrationCsvSerializer : ICsvSerializer<VatRegistrationCommand>
 {
     private const string Header = $"{nameof(VatRegistrationCommand.CompanyName)},{nameof(VatRegistrationCommand.CompanyId)}";
 
@@ -12,7 +12,7 @@ public class VatRegistrationCsvSerializer : ISerializer<VatRegistrationCommand>
     {
         var csvBuilder = new StringBuilder();
         csvBuilder.AppendLine(Header);
-        csvBuilder.AppendLine($"{command.CompanyName}{command.CompanyId}");
+        csvBuilder.Append($"{command.CompanyName},{command.CompanyId}");
         var csv = csvBuilder.ToString();
         return csv;
     }

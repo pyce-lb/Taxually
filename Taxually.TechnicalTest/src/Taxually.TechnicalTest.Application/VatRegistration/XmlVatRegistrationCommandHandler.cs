@@ -2,9 +2,9 @@
 
 public sealed class XmlVatRegistrationCommandHandler : QueueVatRegistrationCommandHandler
 {
-    private const string QueueName = "vat-registration-xml";
+    public const string QueueName = "vat-registration-xml";
 
-    public XmlVatRegistrationCommandHandler(ITaxuallyQueueClient queueClient, ISerializer<VatRegistrationCommand> serializer)
+    public XmlVatRegistrationCommandHandler(ITaxuallyQueueClient queueClient, IXmlSerializer<VatRegistrationCommand> serializer)
         : base(queueClient, serializer) { }
 
     public override async Task HandleAsync(VatRegistrationCommand command, CancellationToken cancellationToken = default)

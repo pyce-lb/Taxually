@@ -11,8 +11,8 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<ITaxuallyHttpClient, TaxuallyHttpClient>();
         services.AddSingleton<ITaxuallyQueueClient, TaxuallyQueueClient>();
 
-        services.AddKeyedSingleton<ISerializer<VatRegistrationCommand>, VatRegistrationCsvSerializer>(ISerializer.CsvKey);
-        services.AddKeyedSingleton<ISerializer<VatRegistrationCommand>, XmlSerializer<VatRegistrationCommand>>(ISerializer.XmlKey);
+        services.AddSingleton<ICsvSerializer<VatRegistrationCommand>, VatRegistrationCsvSerializer>();
+        services.AddSingleton<IXmlSerializer<VatRegistrationCommand>, XmlSerializer<VatRegistrationCommand>>();
         return services;
     }
 }

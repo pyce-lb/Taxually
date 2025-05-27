@@ -2,7 +2,7 @@
 
 public sealed class ApiVatRegistrationCommandHandler : ICommandHandler<VatRegistrationCommand>
 {
-    private const string Url = "https://api.uktax.gov.uk";
+    public const string Url = "https://api.uktax.gov.uk";
 
     private readonly ITaxuallyHttpClient _httpClient;
 

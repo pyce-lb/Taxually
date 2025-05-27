@@ -1,7 +1,13 @@
 <Solution>
-  <Project Path="Taxually.TechnicalTest.Application/Taxually.TechnicalTest.Application.csproj" />
-  <Project Path="Taxually.TechnicalTest.Contract/Taxually.TechnicalTest.Contract.csproj" />
-  <Project Path="Taxually.TechnicalTest.Domain/Taxually.TechnicalTest.Domain.csproj" />
-  <Project Path="Taxually.TechnicalTest.Infrastructure/Taxually.TechnicalTest.Infrastructure.csproj" />
-  <Project Path="Taxually.TechnicalTest/Taxually.TechnicalTest.csproj" />
+  <Folder Name="/src/">
+    <Project Path="src/Taxually.TechnicalTest.Application/Taxually.TechnicalTest.Application.csproj" />
+    <Project Path="src/Taxually.TechnicalTest.Contract/Taxually.TechnicalTest.Contract.csproj" />
+    <Project Path="src/Taxually.TechnicalTest.Domain/Taxually.TechnicalTest.Domain.csproj" />
+    <Project Path="src/Taxually.TechnicalTest.Infrastructure/Taxually.TechnicalTest.Infrastructure.csproj" />
+    <Project Path="src/Taxually.TechnicalTest/Taxually.TechnicalTest.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Taxually.TechnicalTest.Tests.InMemory/Taxually.TechnicalTest.Tests.InMemory.csproj" />
+    <Project Path="tests/Taxually.TechnicalTest.Tests.Integration/Taxually.TechnicalTest.Tests.Integration.csproj" Id="06574692-37c6-4259-9df4-3dcd30becc23" />
+  </Folder>
 </Solution>

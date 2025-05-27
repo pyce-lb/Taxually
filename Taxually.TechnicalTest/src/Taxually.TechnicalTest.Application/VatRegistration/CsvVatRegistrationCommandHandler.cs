@@ -4,9 +4,9 @@ namespace Taxually.TechnicalTest.Application.VatRegistration;
 
 public sealed class CsvVatRegistrationCommandHandler : QueueVatRegistrationCommandHandler
 {
-    private const string QueueName = "vat-registration-csv";
+    public const string QueueName = "vat-registration-csv";
 
-    public CsvVatRegistrationCommandHandler(ITaxuallyQueueClient queueClient, ISerializer<VatRegistrationCommand> serializer)
+    public CsvVatRegistrationCommandHandler(ITaxuallyQueueClient queueClient, ICsvSerializer<VatRegistrationCommand> serializer)
         : base(queueClient, serializer) { }
 
     public override async Task HandleAsync(VatRegistrationCommand command, CancellationToken cancellationToken = default)
